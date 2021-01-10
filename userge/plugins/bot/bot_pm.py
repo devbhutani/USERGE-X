@@ -130,9 +130,9 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("CONTACT", url=f"t.me/{u_n}"),
+                            InlineKeyboardButton("Contact", url=f"t.me/{u_n}"),
                             InlineKeyboardButton(
-                                "REPO", url="https://github.com/code-rgb/USERGE-X"
+                                "Sushant G", url="sushantgirdhar.github.io"
                             ),
                         ],
                         [
@@ -162,7 +162,7 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
             )
         else:
             await callback_query.answer(
-                "ONLY MY MASTER CAN DO THAT ! \n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙐𝙎𝙀𝙍𝙂𝙀-𝙓 !",
+                "ONLY MY MASTER CAN DO THAT ! \n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 !",
                 show_alert=True,
             )
 
