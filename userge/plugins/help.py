@@ -69,13 +69,13 @@ REPO_X = InlineQueryResultArticle(
         [
             [
                 InlineKeyboardButton(
-                    "🔥 Master", url="http://t.me/sushantgirdhar/"
+                    "🔥 Master", url="http://sushantgirdhar.github.io/"
                 ),
                 InlineKeyboardButton(
                     "🚀 Sushant",
                     url=(
-                        "http://sushantgirdhar.github.io/"
-                        "http://sushantgirdhar.github.io/"
+                        "http://telegram.me/"
+                        "sushantgirdhar"
                     ),
                 ),
             ]
