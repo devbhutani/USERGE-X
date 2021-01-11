@@ -130,7 +130,8 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
                         [
                             InlineKeyboardButton("Contact", url=f"t.me/{u_n}"),
                             InlineKeyboardButton(
-                                "WhatsApp 💬", url="https://wa.me/918076542838?text=Hey%20Sushant%20!!%20How%20are%20you%20are%20you%3F"
+                                "WhatsApp 💬",
+                                url="https://wa.me/918076542838?text=Hey%20Sushant%20!!%20How%20are%20you%20are%20you%3F",
                             ),
                         ],
                         [
