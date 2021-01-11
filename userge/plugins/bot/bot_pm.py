@@ -45,9 +45,7 @@ if userge.has_bot:
         hello = f"""
 Hello {f_name},
 Nice To Meet You! I'm **{bot.first_name}** A Bot.
-
         <i><b>Powered by</i> [EBRUISER](https://t.me/EBRUISER)</b>
-
 <b>My Master is: {master.first_name}</b>
 <i>You can contact my <b>Master</b> and checkout the <b>Repo</b> For more info.</i>
 """
@@ -132,12 +130,12 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
                         [
                             InlineKeyboardButton("Contact", url=f"t.me/{u_n}"),
                             InlineKeyboardButton(
-                                "Sushant G", url="sushantgirdhar.github.io"
+                                "WhatsApp 💬", url="https://wa.me/918076542838?text=Hey%20Sushant%20!!%20How%20are%20you%20are%20you%3F"
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                "➕ ADD TO GROUP", callback_data="add_to_grp"
+                                "➕Add Bot to Group", callback_data="add_to_grp"
                             )
                         ],
                     ]
@@ -162,7 +160,7 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
             )
         else:
             await callback_query.answer(
-                "ONLY MY MASTER CAN DO THAT ! \n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 !",
+                "ONLY S∩SH∀N⊥ CAN DO THAT ! \n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 !",
                 show_alert=True,
             )
 
