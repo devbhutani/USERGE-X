@@ -32,10 +32,10 @@ _DEFAULT = "https://t.me/useless_x/2"
 
 # refresh file id from TG server
 
-
 if userge.has_bot:
 
-    @userge.bot.on_message(filters.private & filters.regex(pattern=r"^/start$"))
+    @userge.bot.on_message(filters.private & filters.regex(pattern=r"^/start$")
+                           )
     async def start_bot(_, message: Message):
         bot = await userge.bot.get_me()
         master = await userge.get_me()
@@ -64,9 +64,11 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
                 d2 = today.strftime("%B %d, %Y")
                 start_date = d2.replace(",", "")
                 u_n = master.username
-                BOT_START.insert_one(
-                    {"firstname": f_name, "user_id": u_id, "date": start_date}
-                )
+                BOT_START.insert_one({
+                    "firstname": f_name,
+                    "user_id": u_id,
+                    "date": start_date
+                })
                 await asyncio.sleep(2)
                 log_msg = (
                     f"A New User Started your Bot \n\n• <i>ID</i>: `{u_id}`\n   👤 : "
@@ -80,8 +82,7 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
             except Exception as set_err:
                 _LOG.exception(
                     "There was some problem while setting Media Data. "
-                    f"trying again... ERROR:: {set_err} ::"
-                )
+                    f"trying again... ERROR:: {set_err} ::")
                 _set_data(True)
         try:
             await _send_botstart(message, hello, u_n)
@@ -119,9 +120,10 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
             _CHAT = match.group(6)
             _MSG_ID = int(match.group(7))
 
-    async def _send_botstart(
-        message: Message, caption_text: str, u_n: str, recurs_count: int = 0
-    ) -> None:
+    async def _send_botstart(message: Message,
+                             caption_text: str,
+                             u_n: str,
+                             recurs_count: int = 0) -> None:
         if not LOGO_ID:
             await _refresh_id(message)
         try:
@@ -129,28 +131,27 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
                 chat_id=message.chat.id,
                 file_id=LOGO_ID,
                 caption=caption_text,
-                reply_markup=InlineKeyboardMarkup(
+                reply_markup=InlineKeyboardMarkup([
                     [
-                        [
-                            InlineKeyboardButton("Contact", url=f"t.me/{u_n}"),
-                            InlineKeyboardButton(
-                                "WhatsApp 💬",
-                                url="https://wa.me/918076542838?text=Hey%20Sushant%20!!%20How%20are%20you%20are%20you%3F",
-                            ),
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                "➕Add Bot to Group", callback_data="add_to_grp"
-                            )
-                        ],
-                    ]
-                ),
+                        InlineKeyboardButton("Contact", url=f"t.me/{u_n}"),
+                        InlineKeyboardButton(
+                            "WhatsApp 💬",
+                            url=
+                            "https://wa.me/918076542838?text=Hey%20Sushant%20!!%20How%20are%20you%20are%20you%3F",
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton("➕Add Bot to Group",
+                                             callback_data="add_to_grp")
+                    ],
+                ]),
             )
         except MediaEmpty:
             if recurs_count >= 2:
                 return
             await _refresh_id(message)
-            return await _send_botstart(message, caption_text, u_n, recurs_count + 1)
+            return await _send_botstart(message, caption_text, u_n,
+                                        recurs_count + 1)
 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^add_to_grp$"))
     async def add_to_grp(_, callback_query: CallbackQuery):
@@ -161,8 +162,7 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
             add_bot = f"http://t.me/{botname}?startgroup=start"
             buttons = [[InlineKeyboardButton("➕ PRESS TO ADD", url=add_bot)]]
             await callback_query.edit_message_text(
-                msg, reply_markup=InlineKeyboardMarkup(buttons)
-            )
+                msg, reply_markup=InlineKeyboardMarkup(buttons))
         else:
             await callback_query.answer(
                 "ONLY S∩SH∀N⊥ CAN DO THAT ! \n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 !",
@@ -186,6 +186,4 @@ async def bot_users(message: Message):
 
     await message.edit_or_send_as_file(
         f"<u><i><b>Bot PM Userlist</b></i></u>\n\n{msg}"
-        if msg
-        else "`Nobody Does it Better`"
-    )
+        if msg else "`Nobody Does it Better`")
